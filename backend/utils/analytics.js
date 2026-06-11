@@ -23,7 +23,6 @@ const calculateAnalytics = (form, responses) => {
     for (let key in res.answers) {
       const value = res.answers[key];
 
-      // NUMBER
       if (typeof value === "number") {
         if (result.numberAnalytics[key]) {
           result.numberAnalytics[key].total += value;
@@ -31,7 +30,6 @@ const calculateAnalytics = (form, responses) => {
         }
       }
 
-      // SELECT (string)
       if (typeof value === "string") {
         if (result.selectAnalytics[key]) {
           result.selectAnalytics[key][value] =
@@ -39,7 +37,6 @@ const calculateAnalytics = (form, responses) => {
         }
       }
 
-      // MULTI SELECT (array)
       if (Array.isArray(value)) {
         value.forEach((v) => {
           result.selectAnalytics[key][v] =
@@ -49,7 +46,7 @@ const calculateAnalytics = (form, responses) => {
     }
   });
 
-  // calculate averages
+  
   Object.keys(result.numberAnalytics).forEach((key) => {
     const item = result.numberAnalytics[key];
     if (item.count > 0) {

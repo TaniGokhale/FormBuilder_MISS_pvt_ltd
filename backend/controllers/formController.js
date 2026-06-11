@@ -1,6 +1,5 @@
 const Form = require("../models/Form");
 
-// CREATE FORM
 const createForm = async (req, res) => {
   try {
     const { title, description, fields } = req.body;
@@ -25,7 +24,6 @@ const createForm = async (req, res) => {
   }
 };
 
-// GET ALL FORMS
 const getForms = async (req, res) => {
   try {
     const forms = await Form.find();
@@ -37,7 +35,6 @@ const getForms = async (req, res) => {
   }
 };
 
-// GET SINGLE FORM
 const getFormById = async (req, res) => {
   try {
     const form = await Form.findById(req.params.id);

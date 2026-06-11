@@ -2,7 +2,6 @@ const Response = require("../models/Response");
 const Form = require("../models/Form");
 const validateResponse = require("../utils/validResponse");
 
-// SUBMIT RESPONSE
 const submitResponse = async (req, res) => {
   try {
     const { formId, answers } = req.body;
@@ -36,7 +35,6 @@ const submitResponse = async (req, res) => {
   }
 };
 
-// GET RESPONSES OF FORM
 const getResponsesByForm = async (req, res) => {
   try {
     const responses = await Response.find({
